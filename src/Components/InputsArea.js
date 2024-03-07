@@ -1,34 +1,27 @@
-// import React from "react";
-// import "../CSS/inputsArea.css";
-
-// export default function InputsArea() {
-//   return (
-//     <div className="inputArea container">
-//       <label for="input">Amount</label>
-//       <input id="input" type="text" placeholder="Enter Amount" />
-//       <label for="Description">Description</label>
-//       <input id="Description" type="text" placeholder="Enter Description" />
-//     </div>
-//   );
-// }
-
 import React, { useState } from "react";
 import "../CSS/inputsArea.css";
+import {
+  checkLocalStorage,
+  checkValues,
+  saveExpense,
+} from "../JS Functions/globalFunctions";
 
 export default function InputsArea() {
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
 
   const handleSave = () => {
+    checkLocalStorage();
     // Check if both amount and description are not empty before saving
-    if (amount.trim() !== "" && description.trim() !== "") {
+    if (checkValues(amount, description)) {
       // Construct the data object to save to local storage
       const data = {
+        date: new Date(),
         amount: amount,
         description: description,
       };
-      // Convert data to JSON string and save to local storage
-      localStorage.setItem("expenseData", JSON.stringify(data));
+      // save the expense to local storage
+      saveExpense(data);
       // Clear input fields after saving
       setAmount("");
       setDescription("");
@@ -39,6 +32,7 @@ export default function InputsArea() {
       alert("Please fill in both amount and description fields.");
     }
   };
+
 
   return (
     <div className="inputArea container">
