@@ -1,0 +1,11 @@
+.table-of-exp {
+  background-color: aqua;
+  width: 100%;
+  .table-of-exp-head {
+    /* background-color: bisque; */
+    .head-item {
+      /* width: calc(100% / 3); */
+      text-align: center;
+    }
+  }
+}

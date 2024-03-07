@@ -25,4 +25,10 @@ export const checkValues = (...values) => {
     return values.every((value) => value.trim() !== "");
 }
 
+// function to get all expenses from local storage
+export const getExpenses = () => {
+    checkLocalStorage();
+    return JSON.parse(localStorage.getItem("expenses"));
+}
+
 
