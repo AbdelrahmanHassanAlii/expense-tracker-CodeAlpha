@@ -31,4 +31,13 @@ export const getExpenses = () => {
     return JSON.parse(localStorage.getItem("expenses"));
 }
 
+//function to extract time from date
+export const getTime = (date) => {
+    return new Date(date).toTimeString().split(' ')[0];
+}
+
+//function to extract date from date
+export const getDate = (date) => {
+    return new Date(date).toISOString().split('T')[0];
+}
 

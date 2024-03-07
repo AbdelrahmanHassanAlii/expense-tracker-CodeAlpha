@@ -1,11 +1,26 @@
+/* tableOfExpenses.css */
 .table-of-exp {
-  background-color: aqua;
+  padding: 50px !important;
+  background-color: var(--gray-color);
   width: 100%;
-  .table-of-exp-head {
-    /* background-color: bisque; */
-    .head-item {
-      /* width: calc(100% / 3); */
-      text-align: center;
-    }
+}
+
+.table-of-exp-head {
+  background-color: chocolate;
+  border-bottom: 1px solid var(--white-color);
+
+  .head-item {
+    text-align: center;
   }
+}
+
+.table-of-exp-row {
+  .table-cell:not(:first-child) {
+    width: calc(100% / 4);
+    text-align: center;
+  }
+}
+
+.table-of-exp-row:not(:last-child) {
+  border-bottom: 1px solid var(--white-color);
 }
