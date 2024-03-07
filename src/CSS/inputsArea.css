@@ -1,0 +1,20 @@
+.inputArea {
+  input {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--gray-color);
+    outline: none;
+    border: none;
+    caret-color: var(--white-color);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    color: var(--white-color);
+    &:focus {
+      border: 1px solid var(--white-color);
+    }
+  }
+}
