@@ -3,8 +3,8 @@ import "../CSS/inputsArea.css";
 import {
   checkLocalStorage,
   checkValues,
-  saveExpense,
 } from "../JS Functions/globalFunctions";
+import { saveExpense } from "../JS Functions/ExpensesFunctions";
 
 export default function InputsArea() {
   const [amount, setAmount] = useState("");

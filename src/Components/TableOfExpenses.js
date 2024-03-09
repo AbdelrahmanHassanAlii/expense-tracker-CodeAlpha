@@ -14,6 +14,7 @@ export default function TableOfExpenses() {
             <th className="head-item time">Time</th>
             <th className="head-item amount">Amount</th>
             <th className="head-item description">Description</th>
+            <th className="head-item control">Control</th>
           </tr>
         </thead>
         <tbody>
