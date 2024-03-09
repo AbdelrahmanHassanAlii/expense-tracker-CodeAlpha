@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import {
-  getDate,
-  getTime,
-} from "../JS Functions/globalFunctions";
+import { getDate, getTime } from "../JS Functions/globalFunctions";
 import "../CSS/tableRows.css";
 import { Button } from "react-bootstrap";
-import { deleteExpenseByIndex, getExpenses } from "../JS Functions/ExpensesFunctions";
+import {
+  deleteExpenseByIndex,
+  getExpenses,
+} from "../JS Functions/ExpensesFunctions";
+import {
+  checkLocalStorageCategories,
+  getAllCategories,
+} from "../JS Functions/categoriesFunctions";
 
 export default function TableRows() {
   const [expenses, setExpenses] = useState([]);
@@ -23,9 +27,8 @@ export default function TableRows() {
   };
 
   const handleUpdate = (index) => {
-    // Here you can implement your logic for updating the expense
-    // For example, you can open a modal or navigate to a form page with pre-filled data
-    console.log("Update expense at index:", index);
+    // checkLocalStorageCategories();
+    getAllCategories();
   };
 
   return expenses.map((exp, index) => (

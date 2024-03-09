@@ -1,3 +1,30 @@
 .header {
   background-color: var(--gray-color);
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .menu {
+      ul {
+        display: flex;
+        list-style: none;
+        li {
+          margin: 0 10px;
+          a {
+            color: var(--white-color);
+            text-decoration: none;
+            transition: 0.5s;
+            -webkit-transition: 0.5s;
+            -moz-transition: 0.5s;
+            -ms-transition: 0.5s;
+            -o-transition: 0.5s;
+            &:hover {
+              color: var(--orange-color);
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
 }

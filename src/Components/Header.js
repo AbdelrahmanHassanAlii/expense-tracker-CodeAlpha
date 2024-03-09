@@ -1,11 +1,24 @@
 import React from "react";
 import "../CSS/header.css";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
     <div className="header container-fluid">
       <div className="container">
-        <p className="name">Tracker</p>
+        <div className="logo">
+          <p className="name">Tracker</p>
+        </div>
+        <div className="menu">
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/manage-categories">Mange Categories</Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );

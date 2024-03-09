@@ -9,18 +9,20 @@ import { saveExpense } from "../JS Functions/ExpensesFunctions";
 export default function InputsArea() {
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
+  const [category, setCategory] = useState(""); // State to hold the selected category
 
   const handleSave = () => {
     checkLocalStorage();
-    // Check if both amount and description are not empty before saving
-    if (checkValues(amount, description)) {
+    // Check if both amount, description, and category are not empty before saving
+    if (checkValues(amount, description) && category !== "") {
       // Construct the data object to save to local storage
       const data = {
         date: new Date(),
         amount: amount,
         description: description,
+        category: category, // Add the selected category to the data object
       };
-      // save the expense to local storage
+      // Save the expense to local storage
       saveExpense(data);
       // Clear input fields after saving
       setAmount("");
@@ -29,10 +31,9 @@ export default function InputsArea() {
       alert("Data saved to local storage!");
     } else {
       // Alert user to fill in all fields before saving (optional)
-      alert("Please fill in both amount and description fields.");
+      alert("Please fill in both amount, description, and select a category.");
     }
   };
-
 
   return (
     <div className="inputArea container">
@@ -52,6 +53,19 @@ export default function InputsArea() {
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Enter Description"
       />
+      {/* Select category */}
+      <label htmlFor="category">Category</label>
+      <select
+        id="category"
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+      >
+        <option value="">Select Category</option>
+        <option value="Food">Food</option>
+        <option value="Transportation">Transportation</option>
+        <option value="Entertainment">Entertainment</option>
+        {/* Add more options as needed */}
+      </select>
       <button onClick={handleSave}>Save</button>
     </div>
   );

@@ -6,7 +6,7 @@
 }
 
 .table-of-exp-head {
-  background-color: chocolate;
+  background-color: var(--orange-color);
   border-bottom: 1px solid var(--white-color);
 
   .head-item {
