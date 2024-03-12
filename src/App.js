@@ -15,6 +15,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/add" element={<MangePage />} />
+        <Route path="/expenses" element={<TableOfExpenses />} />
         <Route path="*" element={<TableOfExpenses />} />
       </Routes>
     </div>

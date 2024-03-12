@@ -6,7 +6,7 @@ import {
   deleteExpenseByIndex,
   getExpenses,
 } from "../JS Functions/ExpensesFunctions";
-import { getAllCategories } from "../JS Functions/categoriesFunctions";
+// import { getAllCategories } from "../JS Functions/categoriesFunctions";
 
 export default function TableRows() {
   const [expenses, setExpenses] = useState([]);
@@ -20,10 +20,10 @@ export default function TableRows() {
     setExpenses(updatedExpenses); // Update the state with the new array of expenses
   };
 
-  const handleUpdate = (index) => {
-    // checkLocalStorageCategories();
-    getAllCategories();
-  };
+  // const handleUpdate = (index) => {
+  //   // checkLocalStorageCategories();
+  //   getAllCategories();
+  // };
 
   return expenses.map((exp, index) => (
     <tr className="table-of-exp-row text-center" key={index}>

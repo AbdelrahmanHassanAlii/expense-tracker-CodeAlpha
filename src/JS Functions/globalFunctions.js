@@ -24,3 +24,21 @@ export const getDate = (date) => {
 export const subtractNumbers = (a, b) => {
   return a - b;
 };
+
+// Combine and sort two arrays by date and time
+export function combineAndSortByDateTime(arr1, arr2) {
+  const combined = [...arr1, ...arr2];
+
+  combined.sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    const timeA = new Date(`1970-01-01T${a.time}`);
+    const timeB = new Date(`1970-01-01T${b.time}`);
+
+    // Sort in reverse order by date and time
+    return dateB - dateA || timeB - timeA;
+  });
+  console.log(combined);
+
+  return combined;
+}

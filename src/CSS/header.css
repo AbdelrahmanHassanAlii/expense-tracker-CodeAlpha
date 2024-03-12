@@ -18,14 +18,20 @@
       }
     }
     .menu {
+      text-align: center;
       width: fit-content;
+      @media screen and (max-width: 768px) {
+        margin: 0 auto;
+      }
       ul {
+        padding: 0;
         width: fit-content;
         text-align: center;
         display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
         list-style: none;
         li {
-          margin: 0 10px;
           a {
             color: var(--white-color);
             text-decoration: none;

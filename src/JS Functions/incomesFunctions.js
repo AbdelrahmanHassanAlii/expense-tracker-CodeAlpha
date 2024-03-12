@@ -13,6 +13,12 @@ export const saveIncome = (income) => {
     localStorage.setItem("incomes", JSON.stringify(incomes));
 };
 
+//function to get all incomes from the local storage
+export const getIncomes = () => {
+    checkLocalStorageIncomes();
+    return JSON.parse(localStorage.getItem("incomes"));
+};
+
 // function to get total number of incomes
 export const getIncomesCount = () => {
     checkLocalStorageIncomes();

@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../CSS/tableOfExpenses.css";
 
 import TableRows from "./TableRows";
+import { getExpenses } from "../JS Functions/ExpensesFunctions";
+import { getIncomes } from "../JS Functions/incomesFunctions";
+import { combineAndSortByDateTime } from "../JS Functions/globalFunctions";
 
 export default function TableOfExpenses() {
+  const [incomes, setIncomes] = useState([]);
+  const [expenses, setExpenses] = useState([]);
+  const [combined, setCombined] = useState([]);
+  useEffect(() => {
+    setExpenses(getExpenses());
+    setIncomes(getIncomes());
+    console.log(incomes);
+    console.log(expenses);
+    combineAndSortByDateTime(incomes, expenses);
+  }, []);
   return (
     <div className="container main-table">
       <table className="table-of-exp">
