@@ -7,19 +7,15 @@ import {
   getExpenses,
 } from "../JS Functions/ExpensesFunctions";
 import {
-  checkLocalStorageCategories,
   getAllCategories,
 } from "../JS Functions/categoriesFunctions";
 
 export default function TableRows() {
   const [expenses, setExpenses] = useState([]);
 
-  let loadedExpenses = [];
-
   useEffect(() => {
-    loadedExpenses = getExpenses();
-    setExpenses(loadedExpenses);
-  }, [loadedExpenses]); // Empty dependency array to fetch expenses only once on component mount
+    setExpenses(getExpenses());
+  }, []); // Empty dependency array to fetch expenses only once on component mount
 
   const handleDelete = (index) => {
     const updatedExpenses = deleteExpenseByIndex(index);

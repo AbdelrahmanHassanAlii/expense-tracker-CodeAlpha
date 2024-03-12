@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../CSS/inputsArea.css";
 import {
   checkLocalStorage,
   checkValues,
 } from "../JS Functions/globalFunctions";
 import { saveExpense } from "../JS Functions/ExpensesFunctions";
+import {
+  checkLocalStorageCategories,
+  getAllCategories,
+} from "../JS Functions/categoriesFunctions";
 
-export default function InputsArea() {
+export default function ExpensesInputs() {
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState(""); // State to hold the selected category
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    // Check if local storage is empty
+    checkLocalStorageCategories();
+    // Fetch all categories
+    setCategories(getAllCategories());
+  }, []);
 
   const handleSave = () => {
     checkLocalStorage();
@@ -37,6 +49,7 @@ export default function InputsArea() {
 
   return (
     <div className="inputArea container">
+      <h2 className="text-center my-3"> Add New Expense </h2>
       <label htmlFor="input">Amount</label>
       <input
         id="input"
@@ -60,11 +73,17 @@ export default function InputsArea() {
         value={category}
         onChange={(e) => setCategory(e.target.value)}
       >
-        <option value="">Select Category</option>
-        <option value="Food">Food</option>
-        <option value="Transportation">Transportation</option>
-        <option value="Entertainment">Entertainment</option>
-        {/* Add more options as needed */}
+        <option value="">--</option>
+        {/* Map categories to options */}
+        {categories && categories.length > 0 ? (
+          categories.map((category, index) => (
+            <option key={index} value={category}>
+              {category}
+            </option>
+          ))
+        ) : (
+          <option value="">No categories found</option>
+        )}
       </select>
       <button onClick={handleSave}>Save</button>
     </div>

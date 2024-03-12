@@ -1,31 +1,33 @@
 // function to check if the local storage is not contain a list named expensesCategories create it
 
 export const checkLocalStorageCategories = () => {
-    if (localStorage.getItem("expensesCategories") === null) {
-        localStorage.setItem("expensesCategories", JSON.stringify([]));
-    }
-}
-
-// function to add new category
-export const addCategory = (category) => {
-    console.log("addCategory function called with category:", category);
-    checkLocalStorageCategories();
-    console.log("Local storage categories:", localStorage.getItem("expensesCategories"));
-    let categories = JSON.parse(localStorage.getItem("expensesCategories"));
-    console.log("Current categories array:", categories);
-    categories.push(category);
-    console.log("New categories array:", categories);
-    localStorage.setItem("expensesCategories", JSON.stringify(categories));
-    console.log("New local storage categories:", localStorage.getItem("expensesCategories"));
+  if (localStorage.getItem("expensesCategories") === null) {
+    const emptySet = new Set(); // Create an empty set
+    localStorage.setItem(
+      "expensesCategories",
+      JSON.stringify(Array.from(emptySet))
+    ); // Convert set to array and store
+  }
 };
 
+
+//function get one category and save it to expensesCategories in localStorage
+export const saveCategory = (category) => {
+  checkLocalStorageCategories();
+  let categories = new Set(
+    JSON.parse(localStorage.getItem("expensesCategories"))
+  ); // Deserialize JSON string into a set
+
+  categories.add(category); // Add the new category to the set
+
+  localStorage.setItem(
+    "expensesCategories",
+    JSON.stringify(Array.from(categories))
+  ); // Convert set back to array and store
+};
 
 //function to get all categories from the local storage
 export const getAllCategories = () => {
-    console.log("getAllCategories function called");
-    const categories = JSON.parse(localStorage.getItem("expensesCategories"));
-    console.log("Local storage categories:", localStorage.getItem("expensesCategories"));
-    console.log("Parsed categories:", categories);
-    return categories;
+  const categories = JSON.parse(localStorage.getItem("expensesCategories"));
+  return categories;
 };
-
