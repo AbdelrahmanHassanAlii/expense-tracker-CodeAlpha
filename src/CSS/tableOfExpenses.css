@@ -3,6 +3,9 @@
   padding: 50px !important;
   background-color: var(--gray-color);
   width: 100%;
+  @media screen and (max-width: 768px) {
+    margin-top: 50px;
+  }
 }
 
 .table-of-exp-head {
@@ -18,9 +21,20 @@
   .table-cell:not(:first-child) {
     width: calc(100% / 5);
     text-align: center;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      width: calc(100% / 3);
+    }
   }
 }
 
 .table-of-exp-row:not(:last-child) {
   border-bottom: 1px solid var(--white-color);
+}
+
+@media screen and (max-width: 768px) {
+  .date,
+  .description {
+    display: none;
+  }
 }

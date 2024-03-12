@@ -12,3 +12,21 @@ export const saveIncome = (income) => {
     incomes.push(income);
     localStorage.setItem("incomes", JSON.stringify(incomes));
 };
+
+// function to get total number of incomes
+export const getIncomesCount = () => {
+    checkLocalStorageIncomes();
+    let incomes = JSON.parse(localStorage.getItem("incomes"));
+    return incomes.length;
+};
+
+//function to get total amout of all incomes
+export const getIncomesAmount = () => {
+    checkLocalStorageIncomes();
+    let incomes = JSON.parse(localStorage.getItem("incomes"));
+    let amount = 0;
+    for (let i = 0; i < incomes.length; i++) {
+        amount += +incomes[i].amount;
+    }
+    return amount;
+};

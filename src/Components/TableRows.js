@@ -6,9 +6,7 @@ import {
   deleteExpenseByIndex,
   getExpenses,
 } from "../JS Functions/ExpensesFunctions";
-import {
-  getAllCategories,
-} from "../JS Functions/categoriesFunctions";
+import { getAllCategories } from "../JS Functions/categoriesFunctions";
 
 export default function TableRows() {
   const [expenses, setExpenses] = useState([]);
@@ -44,9 +42,9 @@ export default function TableRows() {
           Delete
         </Button>
         {/* Update button */}
-        <Button variant="info" onClick={() => handleUpdate(index)}>
+        {/* <Button variant="info" onClick={() => handleUpdate(index)}>
           Update
-        </Button>{" "}
+        </Button>{" "} */}
       </td>
     </tr>
   ));

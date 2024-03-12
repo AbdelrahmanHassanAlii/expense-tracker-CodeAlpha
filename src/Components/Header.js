@@ -20,6 +20,9 @@ export default function Header() {
             <li>
               <Link to="/expenses">Expenses</Link>
             </li>
+            <li>
+              <Link to="/add">Add New</Link>
+            </li>
           </ul>
         </div>
       </div>

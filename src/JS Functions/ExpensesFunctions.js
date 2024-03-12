@@ -17,7 +17,7 @@ export const saveExpense = (expense) => {
 
 // function to get all expenses from local storage
 export const getExpenses = () => {
-    checkLocalStorage();
+  checkLocalStorage();
   return JSON.parse(localStorage.getItem("expenses"));
 };
 
@@ -27,4 +27,22 @@ export const deleteExpenseByIndex = (index) => {
   expenses.splice(index, 1);
   localStorage.setItem("expenses", JSON.stringify(expenses));
   return expenses;
+};
+
+// function to get the total number of expenses
+export const getExpensesCount = () => {
+  checkLocalStorage();
+  let expenses = JSON.parse(localStorage.getItem("expenses"));
+  return expenses.length;
+};
+
+// function to get total amout of all expenses
+export const getExpensesAmount = () => {
+  checkLocalStorage();
+  let expenses = JSON.parse(localStorage.getItem("expenses"));
+  let amount = 0;
+  for (let i = 0; i < expenses.length; i++) {
+    amount += +expenses[i].amount;
+  }
+  return amount;
 };

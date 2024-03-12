@@ -1,0 +1,26 @@
+.home-page {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    padding: 50px;
+  }
+  .analysis {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    @media screen and (max-width: 768px) {
+      margin-top: 50px;
+    }
+    &:hover > .home-card:not(:hover) {
+      scale: 0.5;
+      filter: blur(10px);
+    }
+  }
+  .last {
+    width: 100%;
+  }
+}

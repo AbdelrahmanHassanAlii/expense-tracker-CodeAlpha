@@ -5,6 +5,7 @@ import Header from "./Components/Header";
 import TableOfExpenses from "./Components/TableOfExpenses";
 import Categories from "./Components/Categories";
 import HomePage from "./Pages/HomePage";
+import MangePage from "./Pages/MangePage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/categories" element={<Categories />} />
+        <Route path="/add" element={<MangePage />} />
         <Route path="*" element={<TableOfExpenses />} />
       </Routes>
     </div>

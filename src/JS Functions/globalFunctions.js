@@ -19,3 +19,8 @@ export const getTime = (date) => {
 export const getDate = (date) => {
   return new Date(date).toISOString().split("T")[0];
 };
+
+//function get two numbers and subtract them and return the result
+export const subtractNumbers = (a, b) => {
+  return a - b;
+};
