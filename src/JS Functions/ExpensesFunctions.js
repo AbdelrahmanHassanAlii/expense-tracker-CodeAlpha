@@ -21,7 +21,7 @@ export const getExpenses = () => {
   return JSON.parse(localStorage.getItem("expenses"));
 };
 
-//function to delete expence by id
+//function to delete expence by index
 export const deleteExpenseByIndex = (index) => {
   let expenses = JSON.parse(localStorage.getItem("expenses"));
   expenses.splice(index, 1);

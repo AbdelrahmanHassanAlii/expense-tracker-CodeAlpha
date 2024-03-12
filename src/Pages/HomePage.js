@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ExpensesInputs from "../Components/ExpensesInputs";
 import CategoriesInputs from "../Components/CategoriesInputs";
 import { isCategoryEmpty } from "../JS Functions/categoriesFunctions";
+import IncomesInputs from "../Components/IncomesInputs";
 
 export default function HomePage() {
   const [renderComponents, setRenderComponents] = useState();
@@ -9,19 +10,19 @@ export default function HomePage() {
   useEffect(() => {
     setRenderComponents(
       isCategoryEmpty() ? (
-        <CategoriesInputs />
+        <>
+          <CategoriesInputs />
+          <IncomesInputs />
+        </>
       ) : (
         <>
+            <CategoriesInputs />
+          <IncomesInputs />
           <ExpensesInputs />
-          <CategoriesInputs />
         </>
       )
     );
   }, []);
 
-  return (
-    <div>
-      {renderComponents}
-    </div>
-  );
+  return <div>{renderComponents}</div>;
 }
