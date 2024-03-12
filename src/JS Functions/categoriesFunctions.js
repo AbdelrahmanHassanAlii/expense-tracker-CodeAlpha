@@ -1,5 +1,4 @@
 // function to check if the local storage is not contain a list named expensesCategories create it
-
 export const checkLocalStorageCategories = () => {
   if (localStorage.getItem("expensesCategories") === null) {
     const emptySet = new Set(); // Create an empty set
@@ -10,6 +9,12 @@ export const checkLocalStorageCategories = () => {
   }
 };
 
+//function to chech if expensesCategories is empty or not
+export const isCategoryEmpty = () => {
+  checkLocalStorageCategories();
+  const categories = JSON.parse(localStorage.getItem("expensesCategories"));
+  return categories.length === 0;
+};
 
 //function get one category and save it to expensesCategories in localStorage
 export const saveCategory = (category) => {

@@ -1,4 +1,6 @@
 .inputArea {
+  width: 50% !important;
+  margin-bottom: 50px;
   input {
     width: 100%;
     padding: 10px;

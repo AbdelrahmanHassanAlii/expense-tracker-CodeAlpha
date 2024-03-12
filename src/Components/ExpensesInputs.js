@@ -85,7 +85,9 @@ export default function ExpensesInputs() {
           <option value="">No categories found</option>
         )}
       </select>
-      <button onClick={handleSave}>Save</button>
+      <button className="btn btn-primary d-block" onClick={handleSave}>
+        Save
+      </button>
     </div>
   );
 }

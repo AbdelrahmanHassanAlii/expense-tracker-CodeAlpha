@@ -12,6 +12,8 @@ export default function CategoriesInputs() {
       setName("");
       // Alert user that data is saved (optional)
       alert("Data saved to local storage!");
+      //redirect to this route /categories
+      window.location.href = "/categories";
     } else {
       // Alert user to fill in all fields before saving (optional)
       alert("Please fill in name before saving.");
