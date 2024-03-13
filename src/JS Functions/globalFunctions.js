@@ -25,20 +25,13 @@ export const subtractNumbers = (a, b) => {
   return a - b;
 };
 
-// Combine and sort two arrays by date and time
-export function combineAndSortByDateTime(arr1, arr2) {
-  const combined = [...arr1, ...arr2];
 
+// function get tow arrays of incomes and expenses and combine them which one of the array is containing objects sort them by the date and time
+export const combineAndSortByDateTime = (incomes, expenses) => {
+  let combined = [...incomes, ...expenses];
   combined.sort((a, b) => {
-    const dateA = new Date(a.date);
-    const dateB = new Date(b.date);
-    const timeA = new Date(`1970-01-01T${a.time}`);
-    const timeB = new Date(`1970-01-01T${b.time}`);
-
-    // Sort in reverse order by date and time
-    return dateB - dateA || timeB - timeA;
+    return new Date(a.date + " " + a.time) - new Date(b.date + " " + b.time); // Reversed comparison
   });
-  console.log(combined);
-
   return combined;
-}
+};
+

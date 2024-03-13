@@ -43,7 +43,7 @@ export default function IncomesInputs() {
         placeholder="Enter Description"
       />
 
-      <button className="btn btn-primary" onClick={handleSave}>
+      <button className="save-btn btn btn-primary d-block" onClick={handleSave}>
         Save
       </button>
     </div>

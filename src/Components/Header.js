@@ -18,6 +18,9 @@ export default function Header() {
               <Link to="/categories">Categories</Link>
             </li>
             <li>
+              <Link to="/">Incomes</Link>
+            </li>
+            <li>
               <Link to="/expenses">Expenses</Link>
             </li>
             <li>

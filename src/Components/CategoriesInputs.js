@@ -32,9 +32,9 @@ export default function CategoriesInputs() {
         placeholder="Enter Category Name"
       />
       {/* File input for uploading image */}
-      <button className="btn btn-primary" onClick={handleSave}>
-        Save
-      </button>
+        <button className="save-btn btn btn-primary d-block" onClick={handleSave}>
+          Save
+        </button>
     </div>
   );
 }

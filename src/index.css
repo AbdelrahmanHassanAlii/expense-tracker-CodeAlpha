@@ -8,3 +8,9 @@ body {
   background-color: var(--dark-color) !important;
   color: var(--white-color) !important;
 }
+
+.save-btn {
+  background-color: var(--orange-color);
+  width: 50%;
+  margin: 10px auto;
+}

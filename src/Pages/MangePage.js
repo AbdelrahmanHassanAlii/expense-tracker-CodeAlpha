@@ -3,30 +3,27 @@ import { isCategoryEmpty } from "../JS Functions/categoriesFunctions";
 import CategoriesInputs from "../Components/CategoriesInputs";
 import IncomesInputs from "../Components/IncomesInputs";
 import ExpensesInputs from "../Components/ExpensesInputs";
-import { getIncomesAmount } from "../JS Functions/incomesFunctions";
-import { getExpensesAmount } from "../JS Functions/ExpensesFunctions";
+import "../CSS/mange.css";
 
 export default function MangePage() {
-
   const [renderComponents, setRenderComponents] = useState();
 
   useEffect(() => {
     setRenderComponents(
       isCategoryEmpty() ? (
-        <>
+        <div className="mange">
           <CategoriesInputs />
           <IncomesInputs />
-        </>
+        </div>
       ) : (
-        <>
+        <div className="mange">
           <CategoriesInputs />
           <IncomesInputs />
           <ExpensesInputs />
-        </>
+        </div>
       )
     );
   }, []);
-
 
   return <div>{renderComponents}</div>;
 }
