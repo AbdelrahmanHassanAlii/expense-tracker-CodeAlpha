@@ -1,22 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../CSS/tableOfExpenses.css";
-
 import TableRows from "./TableRows";
-import { deleteExpenseByIndex, getExpenses } from "../JS Functions/ExpensesFunctions";
-import { getIncomes } from "../JS Functions/incomesFunctions";
-import { combineAndSortByDateTime } from "../JS Functions/globalFunctions";
 
-export default function TableOfExpenses() {
-  // const [incomes, setIncomes] = useState([]);
-  // const [expenses, setExpenses] = useState([]);
-  // const [combined, setCombined] = useState([]);
-  // useEffect(() => {
-  //   setExpenses(getExpenses());
-  //   setIncomes(getIncomes());
-  //   console.log(incomes);
-  //   console.log(expenses);
-  //   combineAndSortByDateTime(incomes, expenses);
-  // }, []);
+export default function TableOfExpenses({data, deleteFunction}) {
+
   return (
     <div className="container main-table">
       <table className="table-of-exp">
@@ -31,7 +18,7 @@ export default function TableOfExpenses() {
           </tr>
         </thead>
         <tbody>
-          <TableRows data={getExpenses()} deleteFunction = {deleteExpenseByIndex} />
+          <TableRows data={data} deleteFunction = {deleteFunction} />
         </tbody>
       </table>
     </div>

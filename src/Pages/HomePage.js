@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
+  deleteExpenseByIndex,
+  getExpenses,
   getExpensesAmount,
   getExpensesCount,
 } from "../JS Functions/ExpensesFunctions";
@@ -71,7 +73,10 @@ export default function HomePage() {
         </div>
       </div>
       <div className="last">
-        <TableOfExpenses />
+        <TableOfExpenses
+          data={getExpenses()}
+          deleteFunction={deleteExpenseByIndex}
+        />
       </div>
     </div>
   );

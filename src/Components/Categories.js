@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { getAllCategories } from "../JS Functions/categoriesFunctions";
-import { FaArrowDown } from "react-icons/fa";
-
 export default function Categories() {
   const [categories, setCategories] = useState([]);
 
