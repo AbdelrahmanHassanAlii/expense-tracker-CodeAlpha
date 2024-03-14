@@ -15,7 +15,8 @@ import { FaArrowAltCircleUp } from "react-icons/fa";
 import { FaBalanceScale } from "react-icons/fa";
 import "../CSS/home.css";
 import { subtractNumbers } from "../JS Functions/globalFunctions";
-import TableOfExpenses from "../Components/TableOfExpenses";
+import Table from "../Components/Table";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   const [expenses, setExpenses] = useState([]);
@@ -74,7 +75,23 @@ export default function HomePage() {
         </div>
       </div>
       <div className="last">
-        <TableOfExpenses data={expenses} deleteFunction={deleteExpense} />
+        {expenses.length === 0 ? (
+          <>
+            <h3 className="text-center my-3">No expenses</h3>
+            <Link to="/add">
+              {" "}
+              <button className="btn btn-primary d-block m-auto text-decoration-none">
+                {" "}
+                Add Expenses{" "}
+              </button>
+            </Link>
+          </>
+        ) : (
+          <>
+              <h3 className="text-center my-3">Last { expenses.length > 5 ? 5 : expenses.length } Expenses</h3>
+            <Table data={expenses.slice(0, 5)} deleteFunction={deleteExpense} />
+          </>
+        )}
       </div>
     </div>
   );

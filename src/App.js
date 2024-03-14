@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./Components/Header";
-import TableOfExpenses from "./Components/TableOfExpenses";
 import Categories from "./Components/Categories";
 import HomePage from "./Pages/HomePage";
 import MangePage from "./Pages/MangePage";
@@ -18,7 +17,7 @@ function App() {
         <Route path="/add" element={<MangePage />} />
         <Route path="/incomes" element={<IncomesPage />} />
         <Route path="/expenses" element={<ExpensesPage />} />
-        <Route path="*" element={<TableOfExpenses />} />
+        <Route path="*" element={<HomePage />} />
       </Routes>
     </div>
   );

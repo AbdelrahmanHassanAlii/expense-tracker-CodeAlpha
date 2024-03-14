@@ -2,7 +2,7 @@ import React from "react";
 import "../CSS/tableOfExpenses.css";
 import TableRows from "./TableRows";
 
-export default function TableOfExpenses({data, deleteFunction}) {
+export default function Table({data, deleteFunction}) {
 
   return (
     <div className="container main-table">

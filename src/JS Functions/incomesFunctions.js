@@ -19,6 +19,13 @@ export const getIncomes = () => {
     return JSON.parse(localStorage.getItem("incomes"));
 };
 
+//function to delete one income from local storage by index
+export const deleteIncomeByIndex = (index) => {
+    let incomes = JSON.parse(localStorage.getItem("incomes"));
+    incomes.splice(index, 1);
+    localStorage.setItem("incomes", JSON.stringify(incomes));
+}
+
 // function to get total number of incomes
 export const getIncomesCount = () => {
     checkLocalStorageIncomes();

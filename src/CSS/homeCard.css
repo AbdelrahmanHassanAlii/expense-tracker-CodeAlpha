@@ -13,11 +13,6 @@
     scale: 1;
     box-shadow: 0 0 10px 0 var(--orange-color);
   }
-  /* &:not(:hover) {
-      scale: 0.5;
-      filter: blur(10px);
-      -webkit-filter: blur(10px);
-    } */
   .content {
     display: flex;
     align-items: start;
