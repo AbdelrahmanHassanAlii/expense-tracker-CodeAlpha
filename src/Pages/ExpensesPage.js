@@ -6,18 +6,18 @@ import {
 } from "../JS Functions/ExpensesFunctions";
 
 export default function ExpensesPage() {
-    const [expenses, setExpenses] = useState([]);
-    useEffect(() => {
-      setExpenses(getExpenses());
-    }, []);
+  const [expenses, setExpenses] = useState([]);
+  useEffect(() => {
+    setExpenses(getExpenses());
+  }, []);
 
-    const deleteExpense = (index) => {
-        deleteExpenseByIndex(index);
-        setExpenses(getExpenses());
-    }
+  const deleteExpense = (index) => {
+    deleteExpenseByIndex(index);
+    setExpenses(getExpenses());
+  };
 
   return (
-    <div>
+    <div className="expenses-page my-5">
       <TableOfExpenses data={expenses} deleteFunction={deleteExpense} />
     </div>
   );

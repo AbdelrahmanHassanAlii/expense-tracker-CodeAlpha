@@ -18,6 +18,8 @@ import { subtractNumbers } from "../JS Functions/globalFunctions";
 import TableOfExpenses from "../Components/TableOfExpenses";
 
 export default function HomePage() {
+  const [expenses, setExpenses] = useState([]);
+
   const [totalExpansesAmount, setTotalExpansesAmount] = useState();
   const [totalExpenses, setTotalExpenses] = useState();
 
@@ -25,22 +27,21 @@ export default function HomePage() {
   const [totalIncomes, setTotalIncomes] = useState();
 
   useEffect(() => {
-    const updateValues = () => {
-      setTotalExpansesAmount(getExpensesAmount());
-      setTotalExpenses(getExpensesCount());
-      setTotalIncomesAmount(getIncomesAmount());
-      setTotalIncomes(getIncomesCount());
-    };
-
-    // Call updateValues initially
-    updateValues();
-
-    // Update values every 0.5 second
-    const interval = setInterval(updateValues, 500);
-
-    // Clean up interval on component unmount
-    return () => clearInterval(interval);
+    setExpenses(getExpenses());
+    setTotalExpansesAmount(getExpensesAmount());
+    setTotalExpenses(getExpensesCount());
+    setTotalIncomesAmount(getIncomesAmount());
+    setTotalIncomes(getIncomesCount());
   }, []);
+
+  const deleteExpense = (index) => {
+    deleteExpenseByIndex(index);
+    setExpenses(getExpenses());
+    setTotalExpansesAmount(getExpensesAmount());
+    setTotalExpenses(getExpensesCount());
+    setTotalIncomesAmount(getIncomesAmount());
+    setTotalIncomes(getIncomesCount());
+  };
 
   return (
     <div className="home-page container">
@@ -73,10 +74,7 @@ export default function HomePage() {
         </div>
       </div>
       <div className="last">
-        <TableOfExpenses
-          data={getExpenses()}
-          deleteFunction={deleteExpenseByIndex}
-        />
+        <TableOfExpenses data={expenses} deleteFunction={deleteExpense} />
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ export default function IncomesPage() {
     setIncomes(getIncomes());
   }, []);
   return (
-    <div>
+    <div className="incomes-page my-5">
       <TableOfExpenses data={incomes} />
     </div>
   );
