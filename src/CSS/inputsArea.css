@@ -1,4 +1,4 @@
-.inputArea {
+/* .inputArea {
   width: 40% !important;
   padding: 10px;
   background-color: var(--gray-color);
@@ -26,4 +26,56 @@
       border: 1px solid var(--white-color);
     }
   }
+} */
+
+.inputArea {
+  width: 40% !important;
+  padding: 20px;
+  background-color: var(--gray-color);
+  border: 1px solid var(--white-color);
+  border-radius: 10px;
+  margin: 0 auto 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  @media screen and (max-width: 768px) {
+    width: 90% !important;
+  }
+}
+
+.inputArea h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--white-color);
+}
+
+.inputArea label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--white-color);
+}
+
+.inputArea input,
+.inputArea select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: var(--dark-color);
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: var(--white-color);
+}
+
+.inputArea input:focus,
+.inputArea select:focus {
+  border: 1px solid var(--white-color);
+}
+
+.inputArea .save-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: var(--white-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }

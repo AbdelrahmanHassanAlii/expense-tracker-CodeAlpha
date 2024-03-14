@@ -1,3 +1,5 @@
+import { deleteExpensesByCategory } from "./ExpensesFunctions";
+
 // function to check if the local storage is not contain a list named expensesCategories create it
 export const checkLocalStorageCategories = () => {
   if (localStorage.getItem("expensesCategories") === null) {
@@ -36,3 +38,17 @@ export const getAllCategories = () => {
   const categories = JSON.parse(localStorage.getItem("expensesCategories"));
   return categories;
 };
+
+//function to delete one category from the local storage by name
+export const deleteCategoryByName = (category) => {
+  let categories = new Set(
+    JSON.parse(localStorage.getItem("expensesCategories"))
+  );
+  categories.delete(category);
+  localStorage.setItem(
+    "expensesCategories",
+    JSON.stringify(Array.from(categories))
+  );
+  // and delete all expenses with this category
+  deleteExpensesByCategory(category);
+}

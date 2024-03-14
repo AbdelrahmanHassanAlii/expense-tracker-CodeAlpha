@@ -9,6 +9,7 @@ import {
   checkLocalStorageCategories,
   getAllCategories,
 } from "../JS Functions/categoriesFunctions";
+import Swal from "sweetalert2";
 
 export default function ExpensesInputs() {
   const [amount, setAmount] = useState("");
@@ -40,10 +41,20 @@ export default function ExpensesInputs() {
       setAmount("");
       setDescription("");
       // Alert user that data is saved (optional)
-      alert("Data saved to local storage!");
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Your Expense has been saved",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     } else {
       // Alert user to fill in all fields before saving (optional)
-      alert("Please fill in both amount, description, and select a category.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please fill in both amount, description, and select a category.",
+      });
     }
   };
 

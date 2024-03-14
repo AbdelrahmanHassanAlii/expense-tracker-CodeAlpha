@@ -23,7 +23,7 @@ export default function MangePage() {
         </div>
       )
     );
-  }, []);
+  }, [renderComponents]);
 
   return <div>{renderComponents}</div>;
 }

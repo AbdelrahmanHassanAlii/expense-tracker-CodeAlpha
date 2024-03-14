@@ -29,6 +29,18 @@ export const deleteExpenseByIndex = (index) => {
   return expenses;
 };
 
+// function to delete one expense from local storage by category name
+export const deleteExpensesByCategory = (category) => {
+  let expenses = JSON.parse(localStorage.getItem("expenses"));
+  let newExpenses = [];
+  for (let i = 0; i < expenses.length; i++) {
+    if (expenses[i].category !== category) {
+      newExpenses.push(expenses[i]);
+    }
+  }
+  localStorage.setItem("expenses", JSON.stringify(newExpenses));
+}
+
 // function to get the total number of expenses
 export const getExpensesCount = () => {
   checkLocalStorage();

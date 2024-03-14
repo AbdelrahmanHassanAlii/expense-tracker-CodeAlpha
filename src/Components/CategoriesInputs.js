@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { checkValues } from "../JS Functions/globalFunctions";
 import { saveCategory } from "../JS Functions/categoriesFunctions";
+import Swal from "sweetalert2";
 
 export default function CategoriesInputs() {
   const [name, setName] = useState("");
@@ -11,13 +12,22 @@ export default function CategoriesInputs() {
       saveCategory(name);
       setName("");
       // Alert user that data is saved (optional)
-      alert("Data saved to local storage!");
-      //redirect to this route /categories
-      window.location.href = "/categories";
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Your Category has been saved",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     } else {
       // Alert user to fill in all fields before saving (optional)
-      alert("Please fill in name before saving.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please fill in all fields before saving",
+      });
     }
+    setName("");
   };
 
   return (
@@ -32,9 +42,9 @@ export default function CategoriesInputs() {
         placeholder="Enter Category Name"
       />
       {/* File input for uploading image */}
-        <button className="save-btn btn btn-primary d-block" onClick={handleSave}>
-          Save
-        </button>
+      <button className="save-btn btn btn-primary d-block" onClick={handleSave}>
+        Save
+      </button>
     </div>
   );
 }

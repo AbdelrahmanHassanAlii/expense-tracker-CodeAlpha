@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { saveIncome } from "../JS Functions/incomesFunctions";
 import { checkValues } from "../JS Functions/globalFunctions";
+import Swal from "sweetalert2";
 
 export default function IncomesInputs() {
   const [amount, setAmount] = useState("");
@@ -16,11 +17,22 @@ export default function IncomesInputs() {
       saveIncome(data);
       setAmount("");
       setDescription("");
-      alert("Data saved to local storage");
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Your Income has been saved",
+        showConfirmButton: false,
+        timer: 1500
+      });
     } else {
-      alert("Please fill in both amount and description before saving");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please fill in both amount and description before saving",
+      });
     }
   };
+
 
   return (
     <div className="inputArea container">
