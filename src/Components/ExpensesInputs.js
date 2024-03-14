@@ -22,7 +22,7 @@ export default function ExpensesInputs() {
     checkLocalStorageCategories();
     // Fetch all categories
     setCategories(getAllCategories());
-  }, []);
+  }, [categories]);
 
   const handleSave = () => {
     checkLocalStorage();
@@ -84,7 +84,7 @@ export default function ExpensesInputs() {
         value={category}
         onChange={(e) => setCategory(e.target.value)}
       >
-        <option value="">--</option>
+        <option value="">Choose Category</option>
         {/* Map categories to options */}
         {categories && categories.length > 0 ? (
           categories.map((category, index) => (

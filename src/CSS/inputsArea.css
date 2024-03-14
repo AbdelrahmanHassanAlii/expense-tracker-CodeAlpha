@@ -1,33 +1,3 @@
-/* .inputArea {
-  width: 40% !important;
-  padding: 10px;
-  background-color: var(--gray-color);
-  border: 1px solid var(--white-color);
-  border-radius: 10px;
-  @media screen and (max-width: 768px) {
-    width: 90% !important;
-  }
-  margin-bottom: 50px;
-  input {
-    width: 100%;
-    padding: 10px;
-    background-color: var(--dark-color);
-    outline: none;
-    border: none;
-    caret-color: var(--white-color);
-    border: 1px solid transparent;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    color: var(--white-color);
-    &:focus {
-      border: 1px solid var(--white-color);
-    }
-  }
-} */
-
 .inputArea {
   width: 40% !important;
   padding: 20px;

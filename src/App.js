@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./Components/Header";
-import Categories from "./Components/Categories";
+import Categories from "./Pages/Categories";
 import HomePage from "./Pages/HomePage";
 import MangePage from "./Pages/MangePage";
 import IncomesPage from "./Pages/IncomesPage";

@@ -58,3 +58,16 @@ export const getExpensesAmount = () => {
   }
   return amount;
 };
+
+// function to get total amout of specific category
+export const getExpensesAmountByCategory = (category) => {
+  checkLocalStorage();
+  let expenses = JSON.parse(localStorage.getItem("expenses"));
+  let amount = 0;
+  for (let i = 0; i < expenses.length; i++) {
+    if (expenses[i].category === category) {
+      amount += +expenses[i].amount;
+    }
+  }
+  return amount;
+}
